@@ -7,8 +7,8 @@
     <title>Bharat's Portfolio</title>
     
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -17,45 +17,59 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
             overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(to right, #1f4037, #99f2c8);
-            padding: 20px;
+            background-color: #03a9f4;
+            padding: 50px;
             text-align: center;
-            animation: headerAnim 2s ease-in-out;
-        }
-
-        @keyframes headerAnim {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            animation: fadeInZoom 1.5s ease-out;
         }
 
         header h1 {
             color: #fff;
             font-size: 3rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
+            position: relative;
+            animation: slideInFromLeft 1.5s ease;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .container {
-            padding: 40px;
+            padding: 50px;
             max-width: 1200px;
             margin: auto;
         }
 
         .section {
             margin-bottom: 60px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         h2 {
@@ -63,27 +77,26 @@
             margin-bottom: 20px;
             text-align: center;
             position: relative;
-            display: inline-block;
         }
 
         h2::after {
             content: '';
             position: absolute;
-            width: 50px;
+            width: 60px;
             height: 4px;
-            background: #99f2c8;
+            background: #03a9f4;
             left: 50%;
             transform: translateX(-50%);
             bottom: -10px;
-            animation: underline 1s ease-in-out;
+            animation: fadeInLine 1s ease;
         }
 
-        @keyframes underline {
+        @keyframes fadeInLine {
             from {
                 width: 0;
             }
             to {
-                width: 50px;
+                width: 60px;
             }
         }
 
@@ -91,12 +104,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            animation: fadeInUp 2s ease-in-out;
         }
 
         .about img {
-            max-width: 300px;
-            border-radius: 20px;
+            max-width: 350px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         .about-text {
@@ -105,83 +131,84 @@
         }
 
         .about-text h3 {
-            font-size: 1.5rem;
-            color: #1f4037;
+            font-size: 1.8rem;
+            color: #03a9f4;
         }
 
         .about-text p {
             font-size: 1rem;
-            color: #666;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            color: #ddd;
+            line-height: 1.8;
         }
 
         .skills {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             text-align: center;
-            animation: slideIn 1.5s ease-in-out;
         }
 
         .skill {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            background-color: #292929;
+            padding: 30px;
+            border-radius: 15px;
             width: 30%;
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
         }
 
         .skill h3 {
             margin-bottom: 10px;
-            color: #1f4037;
+            color: #03a9f4;
         }
 
         .projects {
             display: flex;
-            justify-content: space-around;
-            animation: slideIn 2s ease-in-out;
+            justify-content: space-between;
         }
 
         .project {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            background-color: #292929;
+            padding: 30px;
+            border-radius: 15px;
             width: 45%;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+            color: #03a9f4;
         }
 
         .contact {
             text-align: center;
-            background-color: #1f4037;
+            background-color: #03a9f4;
             color: #fff;
-            padding: 40px;
-            animation: fadeIn 2.5s ease-in-out;
+            padding: 50px;
+            animation: slideUp 1.5s ease-out;
         }
 
         .contact a {
-            color: #99f2c8;
+            color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
         }
 
-        @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .contact a:hover {
+            background-color: #fff;
+            color: #03a9f4;
         }
 
         @keyframes fadeIn {
@@ -193,11 +220,22 @@
             }
         }
 
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         footer {
             background-color: #111;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
         }
 
         footer p {
@@ -215,11 +253,11 @@
     <!-- About Section -->
     <div class="container">
         <section class="about section">
-            <img src="https://via.placeholder.com/300" alt="Bharat's Photo">
+            <img src="https://via.placeholder.com/350" alt="Bharat's Photo">
             <div class="about-text">
                 <h2>About Me</h2>
-                <h3>Hi, I'm Bharat</h3>
-                <p>I am a web developer with a passion for creating beautiful and responsive websites. I enjoy working on both the front-end and back-end, and I'm always excited to learn new technologies and improve my skills.</p>
+                <h3>Hello, I'm Bharat</h3>
+                <p>I am a full-stack web developer passionate about building dynamic and responsive web applications. With experience in front-end and back-end technologies, I constantly strive to learn and implement cutting-edge tools in my projects.</p>
             </div>
         </section>
 
@@ -227,16 +265,16 @@
         <section class="skills section">
             <h2>Skills</h2>
             <div class="skill">
-                <h3>HTML & CSS</h3>
-                <p>Experienced in creating responsive layouts and animations.</p>
-            </div>
-            <div class="skill">
-                <h3>JavaScript</h3>
-                <p>Proficient in using JavaScript for dynamic content and interactions.</p>
+                <h3>Frontend</h3>
+                <p>Proficient in HTML, CSS, JavaScript, and React for building interactive UIs.</p>
             </div>
             <div class="skill">
                 <h3>Backend</h3>
-                <p>Skilled in backend technologies like Node.js and Python.</p>
+                <p>Experience with Node.js, Express, and databases like MongoDB and MySQL.</p>
+            </div>
+            <div class="skill">
+                <h3>UI/UX Design</h3>
+                <p>Skilled in creating intuitive designs using Figma and Adobe XD.</p>
             </div>
         </section>
 
@@ -244,19 +282,19 @@
         <section class="projects section">
             <h2>Projects</h2>
             <div class="project">
-                <h3>Project 1</h3>
-                <p>A responsive e-commerce website built using HTML, CSS, and JavaScript.</p>
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio website showcasing my skills and projects using HTML, CSS, and JavaScript.</p>
             </div>
             <div class="project">
-                <h3>Project 2</h3>
-                <p>A full-stack web application built using Node.js and MongoDB.</p>
+                <h3>E-commerce App</h3>
+                <p>Built a full-stack e-commerce application using React, Node.js, and MongoDB with secure user authentication.</p>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section class="contact section">
             <h2>Contact Me</h2>
-            <p>Interested in working together? Feel free to reach out!</p>
+            <p>If you'd like to work together or just say hi, feel free to reach out!</p>
             <a href="mailto:bharat@example.com">bharat@example.com</a>
         </section>
     </div>
